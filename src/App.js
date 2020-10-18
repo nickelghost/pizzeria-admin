@@ -8,6 +8,10 @@ import {
   UrlField,
   List,
   ImageField,
+  Create,
+  SimpleForm,
+  TextInput,
+  FileInput,
 } from "react-admin";
 import simpleRestProvider from "ra-data-simple-rest";
 
@@ -28,6 +32,16 @@ const App = () => (
             <DateField showTime source="updatedAt" />
           </Datagrid>
         </List>
+      )}
+      create={(props) => (
+        <Create {...props}>
+          <SimpleForm>
+            <TextInput source="title" />
+            <TextInput source="description" />
+            <FileInput label="Picture" source="pictureString" />
+            <TextInput label="Destination URL" source="destinationUrl" />
+          </SimpleForm>
+        </Create>
       )}
     />
   </Admin>
